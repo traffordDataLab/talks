@@ -1,0 +1,65 @@
+name,habitat,length_cm,mass_kg,speed_kph
+African Bush Elephant,land,690,8000,40
+African Wild Dog,land,100,30,72.5
+Black Mamba,land,340,1.4,32.2
+Brown Bear,land,250,620,35
+Cheetah,land,140,65,120
+Coyote,land,9000,18,69
+Domestic Cat,land,5000,6,48
+Eastern Gray Squirrel,land,2800,0.13,20
+Elk,land,140,382,72.4
+Galapagos Tortoise,land,120,300,0.3
+Garden Snail,land,330,0.01,0.1
+Giraffe,land,520,1700,52
+Gray Fox,land,100,5.8,67.6
+Greyhound,land,7400,34,63.5
+Grizzly Bear,land,250,250,56
+Horse,land,200,600,88
+House Mouse,land,900,0.02,13
+Lion,land,280,200,80
+Mongolian Wild Ass,land,220.00000000000003,230,64
+Ostrich,land,250,120,70
+Pig,land,9000,70,17.7
+Polar Bear,land,240,650,30
+Pronghorn,land,140,50,98
+Rabbit,land,4500,2,48
+Red Kangaroo,land,200,80,70
+Roadrunner,land,5400,0.5,32
+Six-Lined Race Runner ,land,2000,0.2,29
+Spotted Hyena,land,130,50,64
+Thomson's Gazelle,land,8000,20,65
+White-Tailed Deer ,land,190,80,48.2
+Wildebeest,land,200,250,64
+Zebra,land,220.00000000000003,328,64.4
+California Condor,air,280,9,90
+Eider Duck,air,9700,2.1,113
+Frigatebird,air,229.99999999999997,1.5,153
+Gannet,air,180,3,100
+Mallard,air,9000,1.1,105
+Pigeon,air,6800,0.37,59
+Red-Breasted Merganser,air,7620,1,129
+Red-Tailed Hawk,air,120,1.1,195
+Spur-Winged Goose,air,100,6,142
+White-Throated Needletail,air,3800,0.03,170
+American Eel,water,100,1.5,3.9
+Barracuda,water,120,4.5,44
+Blue Whale,water,3000,170000,50
+Bluefin Tuna,water,200,250,70
+Bottlenose Dolphin,water,300,250,35
+California Sea Lion,water,220.00000000000003,200,21.6
+Chinstrap Penguin ,water,6800,4.5,32.3
+Common Octopus,water,7500,17,40
+Emperor Penguin,water,120,35,7.5
+Flying Fish,water,5000,1,56.5
+Gentoo Penguin,water,7000,8.2,36
+Great White Shark,water,480,800,40
+Humpback Whale,water,1450,30000,27
+Killer Whale,water,580,4100,48.3
+King Penguin,water,9000,14,8
+Mako Shark,water,280,300,50
+Sailfish,water,300,90,110
+Sea Otter,water,140,30,9
+Striped Marlin,water,350,163,81
+Swordfish,water,210,98,97
+Tiger Shark,water,380,550,32
+Wahoo,water,200,80,77
