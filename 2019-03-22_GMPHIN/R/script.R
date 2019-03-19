@@ -2,7 +2,7 @@ library(tidyverse)
 
 starwars %>%
   select(name, height, mass) %>%
-  filter(!is.na(height), !is.na(mass)) %>% 
+  drop_na() %>% 
   mutate(bmi = mass / (height/100)^2) %>%
   ggplot(aes(x = bmi)) +
   geom_histogram(fill = "#3182bd", colour = "#ffffff",
