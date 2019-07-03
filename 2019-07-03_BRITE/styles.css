@@ -1,0 +1,75 @@
+/* import Open Sans and Fira Mono Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+
+/* set text to Open Sans font */
+body { 
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  color: #212121;
+}
+
+/* style code */ 
+.remark-code, .remark-inline-code { 
+  font-family: 'Source Code Pro', monospace;
+}
+
+.remark-code {
+  background-color: #D2B6E8;
+  font-size: 0.8em;
+}
+
+/* set headers to Open Sans font */
+h1, h2, h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  color: #757575;
+}
+
+/* set link colour */
+a, a > code {
+  color: #fc6721;
+  text-decoration: none;
+}
+
+/*  add underline with hover */
+a:hover {
+  text-decoration: underline;
+}
+
+/* add Trafford Data Lab logo in footer */
+.remark-slide-content:after {
+    content: "";
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    height: 30px;
+    width: 90px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(trafforddatalab_logo.svg);
+}
+
+/* style title slide */
+.title-slide, .title-slide h1, .title-slide h2, .title-slide h3 {
+  color: #FFFFFF;
+}
+
+.title-slide h2 {
+  font-weight: bold;
+}
+
+.title-slide {
+  background-color: #a6bddb;
+}
+
+/* hide the slide number from title slide */
+.title-slide .remark-slide-number {
+  display: none;
+}
+
+
+/* caption size */
+.caption {
+  font-size: .8rem;
+}

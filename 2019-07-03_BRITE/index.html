@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>brite</title>
+    <meta charset="utf-8" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/leaflet/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet/leaflet.js"></script>
+    <link href="libs/leafletfix/leafletfix.css" rel="stylesheet" />
+    <script src="libs/Proj4Leaflet/proj4-compressed.js"></script>
+    <script src="libs/Proj4Leaflet/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding/leaflet.js"></script>
+    <script src="https://use.fontawesome.com/5235085b15.js"></script>
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: title-slide, center, middle
+
+## A Reproducible Workflow
+&lt;img src="img/cookie_cutter.png" alt="cookie_cutter" style="width:30%;"&gt;
+### using R and GitHub
+.large[Henry Partridge | BRITE event | 3 July 2019]
+
+&lt;br /&gt;&lt;br /&gt;&lt;a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"&gt;&lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" width="50px"/&gt;&lt;/a&gt;
+
+---
+
+layout: true
+
+---
+
+class: center, middle
+## Who am I?
+
+&lt;img src="https://github.com/traffordDataLab/traffordDataLab.github.io/raw/master/images/henry.png" alt="me" style="margin-left:2em;width:15%;border-radius:8px;"&gt;
+
+I'm the manager of the &lt;a href="https://www.trafforddatalab.io/" target="_blank"&gt;Trafford Data Lab&lt;/a&gt;. I have an academic background in German philosophy and crime science. I've previously worked at TfL and MMU. I've been a cheerleader for &lt;a href="https://twitter.com/hashtag/rstats" target="_blank"&gt;#rstats&lt;/a&gt; since 2013.
+
+---
+
+class: center, middle
+
+# What is reproducibility?
+
+---
+
+## &amp;nbsp;
+
+&lt;h4&gt;reproducibility &lt;span style = "color:#757575;font-size:16px;font-weight:normal;"&gt;/ˌriːprəˌdjuːsəˈbɪlɪti/ &lt;em&gt;noun&lt;/em&gt; to obtain the same results using the method and data of the original study&lt;/span&gt;&lt;/h4&gt;
+
+--
+
+&lt;br/&gt;
+*which is different from ...*
+&lt;br/&gt;&lt;br/&gt;
+
+--
+
+&lt;h4&gt;replication &lt;span style = "color:#757575;font-size:16px;font-weight:normal;"&gt;/rɛplɪˈkeɪʃ(ə)n/ &lt;em&gt;noun&lt;/em&gt; to obtain the same results using the method of the original study and &lt;span style = "text-decoration: underline;"&gt;independently collected data&lt;/span&gt;&lt;/h4&gt;
+
+---
+
+class: center, middle
+
+## Why is reproducibility important?
+
+---
+
+class: left, middle
+
+&lt;h2&gt;&lt;i class="fa fa-quote-left fa-fw" aria-hidden="true"&gt;&lt;/i&gt;non-reproducible single occurrences are of no significance to science&lt;i class="fa fa-quote-right fa-fw" aria-hidden="true"&gt;&lt;/i&gt;&lt;/h2&gt;
+&lt;h5&gt; Karl Popper, The Logic of Scientific Discovery&lt;/h5&gt;
+
+---
+
+## Why is reproducibility important?
+
+- allows checking and double checking by yourself and others
+- enables rigorous peer review
+- gives confidence in results
+
+---
+
+## "Reproducibility crisis"
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="img/reproducibility_crisis.png" alt="reproducibility_crisis"&gt;
+  &lt;figcaption style="font-size:10pt;"&gt;Source: &lt;a href="https://www.nature.com/news/1.19970" target="_blank"&gt;nature.com&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt; 
+]
+--
+.pull-right[
+100 experimental and correlational studies in psychology were repeated with larger sample sizes. 97% of the original studies had statistically significant results but only 36% of the replications did. The replication effects were on average half the magnitude of the mean effect size of the original effects.
+&lt;p style="font-size:10pt;"&gt;Open Science Collaboration. (2015). Estimating the reproducibility of psychological science. Science, 349(6251), aac4716, &lt;a href="https://doi.org/10.1126/science.aac4716" target="_blank"&gt;DOI:10.1126/science.aac4716&lt;/a&gt;&lt;/p&gt;
+]
+
+---
+
+## Open science initiatives
+- &lt;a href="https://cos.io/rr/" target="_blank"&gt;Registered Reports&lt;/a&gt;
+- study &lt;a href="https://osf.io/e6auq/wiki/Example%20Preregistrations/?view" target="_blank"&gt;pre-registrations&lt;/a&gt;
+- many-lab replication projects e.g &lt;a href="https://osf.io/wx7ck/" target="_blank"&gt;ManyLabs&lt;/a&gt;
+- sharing data
+- open access publishing
+
+---
+
+class: left, middle
+
+&lt;h3&gt;&lt;i class="fa fa-quote-left fa-fw" aria-hidden="true"&gt;&lt;/i&gt;Reproducibility has the potential to serve as a minimum standard for judging scientific claims when full independent replication of a study is not possible.&lt;i class="fa fa-quote-right fa-fw" aria-hidden="true"&gt;&lt;/i&gt;&lt;/h3&gt;
+&lt;p style="font-size:10pt;"&gt;Peng, R. D. (2011). Reproducible research in computational science. Science, 334(6060), 1226-1227, &lt;a href="https://doi.org/10.1126/science.1213847" target="_blank"&gt;DOI:10.1126/science.1213847&lt;/a&gt;&lt;/p&gt;
+
+---
+
+class: center, middle
+
+# Practical steps for a reproducible workflow
+
+---
+
+## Organised projects
+
+- make your project folder self-contained
+- quarantine your raw data
+
+
+```r
+└── project
+    ├── data
+    │   ├── raw         # read-only pre-processed datasets
+    │   └── processed   # intermediate datasets
+    ├── R               # R scripts
+    ├── outputs         # tables, charts
+    ├── README.md       # project description
+    ├── LICENCE.txt     
+    └── .gitignore      
+```
+
+---
+
+## Readable code
+
+- avoid absolute paths
+- adopt a consistent style
+- comment your code
+- write functions
+
+
+```r
+# this an absolute path
+df &lt;- read.csv("/Users/henrypartridge/Documents/project/data/foo.csv", stringsAsFactors = FALSE)
+
+# this is a relative path
+df &lt;- read.csv("data/foo.csv", stringsAsFactors = FALSE)
+```
+
+---
+
+## Literate programming
+
+- avoid word processing software like MS Word
+- combine code with human-readable plain text in &lt;a href="https://rmarkdown.rstudio.com/" target="_blank"&gt;R Markdown&lt;/a&gt;
+
+.pull-left[
+*R Markdown*
+&lt;pre lang="no-highlight"&gt;&lt;code&gt;Bolton Science and Technology Centre
+is located on Minerva Road.&lt;br/&gt;&lt;br/&gt;```{r out.width = '100%', 
+fig.height = 3, echo = FALSE}
+leaflet() %&gt;% 
+  addTiles() %&gt;% 
+  addMarkers(-2.424208, 53.554980,
+             popup = "Bolton Science 
+             and Technology Centre")
+```&lt;/code&gt;&lt;/pre&gt;
+]
+
+.pull-right[
+*HTML output*   
+&lt;br/&gt;
+Bolton Science and Technology Centre is located on Minerva Road.
+<div id="htmlwidget-b0133c9c15e28c3812cf" style="width:100%;height:216px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b0133c9c15e28c3812cf">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[53.55498,-2.424208,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Bolton Science \n             and Technology Centre",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[53.55498,53.55498],"lng":[-2.424208,-2.424208]}},"evals":[],"jsHooks":[]}</script>
+]
+
+---
+
+## Version control
+
+- tracks changes to code and plain text files without need for version v0.1 etc.
+- timestamps your work
+- encourages collaboration
+- integrates with &lt;a href="https://www.rstudio.com/" target="_blank"&gt;RStudio&lt;/a&gt;
+- remote copies of local projects can be stored on GitHub which also provides issue tracking, wikis and website hosting
+
+&lt;br/&gt;
+
+.center[
+&lt;img src="img/diffable.png" alt="diffable" width="80%"&gt; 
+]
+
+---
+
+## Licensing
+Give people permission to use your data and code:
+
+- &lt;a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank"&gt;Open Government Licence 3.0&lt;/a&gt; for government published data
+- &lt;a href="https://creativecommons.org/share-your-work/" target="_blank"&gt;CC-BY&lt;/a&gt;  (Creative Commons Attribution) for media and text
+- &lt;a href="https://opensource.org/licenses/MIT" target="_blank"&gt;MIT&lt;/a&gt;  licence for code
+
+---
+
+class: center, middle
+
+# The Lab's workflow
+
+---
+
+class: center, middle
+
+&lt;img src="img/reproducible_workflow.png" alt="reproducible_workflow" width="100%"&gt; 
+
+---
+
+## Example #1
+
+.pull-left[
+&lt;a href="https://www.trafforddatalab.io/ward_profiler/?theme=Health&amp;name=Hospital%20admissions%20for%20self-harm"&gt;&lt;img src="img/ward_profiler.png" alt="ward-profiler"&gt;&lt;/a&gt;
+]
+.pull-right[
+&lt;a href="https://github.com/traffordDataLab/ward_data"&gt;&lt;img src="img/ward_data_github.png" alt="github"&gt;&lt;/a&gt;
+]
+
+---
+
+
+## Example #2
+
+.pull-left[
+&lt;a href="https://trafforddatalab.shinyapps.io/dashboard/"&gt;&lt;img src="img/dashboard.png" alt="dashboard"&gt;&lt;/a&gt;
+]
+
+.pull-right[
+&lt;a href="https://github.com/traffordDataLab/dashboard"&gt;&lt;img src="img/dashboard_github.png" alt="dashboard_github"&gt;&lt;/a&gt;
+]
+
+
+---
+
+## Example #3
+
+.pull-left[
+&lt;a href="https://www.trafforddatalab.io/recipes"&gt;&lt;img src="img/recipes.png" alt="recipes"&gt;&lt;/a&gt;
+]
+
+.pull-right[
+&lt;a href="https://twitter.com/AppliedInfoNott/status/1139815496335933440"&gt;&lt;img src="img/AppliedInfoNott.png" alt="AppliedInfoNott"&gt;&lt;/a&gt;
+]
+
+---
+
+class: center, middle
+
+## take-home message
+
+---
+
+class: center, middle
+
+&lt;figure&gt;
+  &lt;img src="img/workings_out.png" alt="workings_out"&gt;
+  &lt;figcaption style="font-size:10pt;"&gt;Source: &lt;a href="https://www.aqa.org.uk/" target="_blank"&gt;AQA&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt; 
+
+---
+
+## Useful resources
+
+&lt;ul&gt;
+  &lt;li&gt;Broman, K. W., &amp; Woo, K. H. (2018). Data organization in spreadsheets. The American Statistician, 72(1), 2-10, &lt;a href="https://doi.org/10.1080/00031305.2017.1375989" target="_blank"&gt;DOI:10.1080/00031305.2017.1375989&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Bryan, J. (2018). &lt;a href=“https://happygitwithr.com/” target=“_blank”&gt;Happy Git and GitHub for the useR&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Bryan, J. (2017) &lt;a href=“https://www.tidyverse.org/articles/2017/12/workflow-vs-script/” target=“_blank”&gt;Project-oriented workflow&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;rOpenSci, &lt;a href=“http://ropensci.github.io/reproducibility-guide/” target=“_blank”&gt;Reproducibility in Science&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+---
+
+class: right, middle
+
+# thank you
+
+&lt;a href="http://twitter.com/trafforddatalab"&gt;&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;@trafforddatalab&lt;/a&gt;&lt;br&gt;
+&lt;a href="http://github.com/trafforddatalab"&gt;&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;@trafforddatalab&lt;/a&gt;&lt;br&gt;
+&lt;a href="https://www.trafforddatalab.io"&gt;&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;trafforddatalab.io&lt;/a&gt;&lt;br&gt;
+
+Slides created with [**remark.js**](http://remarkjs.com/) and the R package [**xaringan**](https://github.com/yihui/xaringan)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": false,
+"click": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
